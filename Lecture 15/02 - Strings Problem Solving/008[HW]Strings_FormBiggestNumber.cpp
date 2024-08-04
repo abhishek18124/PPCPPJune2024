@@ -1,0 +1,39 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+
+using namespace std;
+
+// return true if you want a to be ordered before b otherewise return false
+
+bool comparator(int a, int b) {
+
+	string sa = to_string(a);
+	string sb = to_string(b);
+
+	if (sa > sb) {
+
+		// we want a to be ordered before b since we are sorting in dec. ordere
+		return true;
+
+	}
+
+	// todo ...
+
+	return false;
+
+}
+
+int main() {
+
+	int arr[] = {54, 546, 548, 60};
+	int n = sizeof(arr) / sizeof(int);
+
+	sort(arr, arr + n, comparator);
+
+	for (int i = 0; i < n; i++) {
+		cout << arr[i];
+	}
+
+	return 0;
+}
