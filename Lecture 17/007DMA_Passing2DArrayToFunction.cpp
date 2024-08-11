@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void read(int ptr[][4], int m, int n) {
+void read(int** ptr, int m, int n) {
 	for (int i = 0; i < m; i++) {
 		for (int j = 0; j < n; j++) {
 			cin >> ptr[i][j];
