@@ -90,6 +90,8 @@ void solveSudoku(int grid[][9], int n, int i, int j) {
 
 	}
 
+	return;
+
 }
 
 int main() {
