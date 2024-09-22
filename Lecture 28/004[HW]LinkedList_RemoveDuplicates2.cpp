@@ -17,12 +17,12 @@ public:
 
 void insertAtHead(ListNode*& head, int val) {
 	ListNode* n = new ListNode(val);
-	n->next = head; 
+	n->next = head;
 	head = n;
 }
 
 void printLinkedList(ListNode* head) {
-	while(head != NULL) {
+	while (head != NULL) {
 		cout << head->val << " ";
 		head = head->next;
 	}
@@ -45,7 +45,7 @@ int main() {
 	insertAtHead(head, 2);
 	insertAtHead(head, 1);
 	insertAtHead(head, 1);
-	
+
 	printLinkedList(head);
 
 	head = removeDuplicates(head);

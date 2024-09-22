@@ -18,14 +18,14 @@ public:
 void insertAtHead(ListNode*& head, int val) {
 
 	ListNode* n = new ListNode(val);
-	n->next = head; 
+	n->next = head;
 	head = n;
 
 }
 
 void printLinkedList(ListNode* head) {
 
-	while(head) { // head != NULL
+	while (head) { // head != NULL
 		cout << head->val << " ";
 		head = head->next;
 	}
@@ -35,23 +35,41 @@ void printLinkedList(ListNode* head) {
 
 int computeLengthIterative(ListNode* head) {
 	int count = 0;
-	while(head != NULL) {
+	while (head != NULL) {
 		count++;
 		head = head->next;
 	}
 	return count;
 }
 
+// time : O(n^2)
+
 ListNode* bubbleSort(ListNode* head) {
 
 	int n = computeLengthIterative(head);
 
 	int i = 1;
-	while(i < n) {
-		int j = 0; 
-		// ...
-		while(j < n-i) {
-			// ...
+	while (i < n) {
+		int j = 0;
+		ListNode* prev = NULL;
+		ListNode* cur = head;
+		while (j < n - i) {
+			ListNode* temp = cur->next;
+			if (cur->val > temp->val) {
+				// swap cur<->temp
+				cur->next = temp->next;
+				temp->next = cur;
+				if (prev != NULL) {
+					prev->next = temp;
+				} else {
+					head = temp;
+				}
+				prev = temp;
+			} else {
+				// don't swap cur<->temp
+				prev = cur; // prev->next
+				cur = cur->next;
+			}
 			j++;
 		}
 		i++;
